@@ -44,6 +44,10 @@
 	display:inline-block;
 }
 
+.glyph-sound{
+	border: black 1px solid;
+}
+
 
 </style>
 </head>
@@ -55,7 +59,7 @@
 		<line id="line-03" x1="100" y1="100" x2="100" y2="300"/>
 		<line id="line-04" x1="100" y1="300" x2="200" y2="350"/>
 		<line id="line-05" x1="200" y1="350" x2="300" y2="300"/>
-		
+
 		<line id="line-06" x1="200" y1="150" x2="300" y2="100"/>
 		<line id="line-07" x1="200" y1="150" x2="200" y2="50"/>
 		<line id="line-08" x1="200" y1="150" x2="100" y2="100"/>
@@ -68,7 +72,7 @@
 
 
   <rect width="400" height="400" style="fill:rgb(220,220,220);stroke-width:1;stroke:rgb(0,0,0)" />
- 
+
   <g id="line-01-g" class="line-group">
 	<use xlink:href="#line-01" stroke-width="20" pointer-events="stroke"/>
 	<use xlink:href="#line-01" class="main-line" data-segment="1"/>
@@ -117,57 +121,59 @@
 	<use xlink:href="#line-12" stroke-width="20" pointer-events="stroke"/>
 	<use xlink:href="#line-12" class="main-line" data-segment="12"/>
   </g>
-  
-  
+
+
     <!-- Top Points -->
   <circle class="point" cx="200" cy="50" r="5"/>
   <circle class="point" cx="200" cy="150" r="5"/>
   <circle class="point" cx="100" cy="100" r="5"/>
   <circle class="point" cx="300" cy="100" r="5"/>
-  
+
   <!-- Bottom Points -->
   <circle class="point" cx="200" cy="250" r="5"/>
   <circle class="point" cx="200" cy="350" r="5"/>
   <circle class="point" cx="100" cy="300" r="5"/>
   <circle class="point" cx="300" cy="300" r="5"/>
-  
+
   <circle class="order-circle" cx="200" cy="375" r="10" data-segment="13"/>
-  
+
   <line class="word-line" x1="40" y1="200" x2="360" y2="200" stroke="black" stroke-width="3"/>
-  
+
 </svg>
 <div style="height:40px;margin-top:10px;width:400px">
     <span class="centered" style="margin-right:4px;">Glyph:</span>
 	<canvas style="image-rendering: pixelated; image-rendering: crisp-edges;" id="glyph-canvas" width="26" height="40"></canvas>
 	<span class="centered" style="margin-right:4px;">Sound:</span>
-	<div style="display:inline-block;width:100px;text-align: center;vertical-align: top;">
+	<div class="glyph-sound" style="display:inline-block;width:100px;text-align: center;vertical-align: top;">
 		<div style="display: inline-block;width:40%;text-align: center;vertical-align: top;">
-			<span id="sample-sound-1">TH</span>
+			<span id="sample-sound-1">--</span>
 			<br>
-			<span id="sample-example-1" style="font-size: 13px;">Thick</span>
+			<span id="sample-example-1" style="font-size: 13px;">--</span>
 		</div>
 		<span class="centered">+</span>
 		<div style="display: inline-block;width:40%;text-align: center;vertical-align: top;">
-			<span id="sample-sound-2">AI</span>
+			<span id="sample-sound-2">--</span>
 			<br>
-			<span id="sample-example-2" style="font-size: 13px;">Guy</span>
+			<span id="sample-example-2" style="font-size: 13px;">--</span>
 		</div>
 	</div>
-	<span class="centered" style="margin-right:10px;">Value:</span>
+	<span class="centered" style="margin-right:10px;margin-left:4px">Value:</span>
 	<span class="centered" id="glyph-value" style="margin-right:10px;"></span>
 </div>
 <div style="height:40px;margin-top:10px;width:400px">
-    <span class="centered" style="margin-right:4px;">Known Word:</span>
-	<span id="known-word" class="centered" style="margin-right:4px;">???</span>
+    <span class="centered" style="margin-right:4px;">Known Glyph:</span>
+	<span id="known-glyph" class="centered" style="margin-right:4px;">???</span>
 </div>
-<canvas id="word-canvas" style="image-rendering: pixelated; image-rendering: crisp-edges;background:rgb(225,225,225);" width="400" height="40"></canvas>
 <input id="add-to-word-button" type="button" value="Add to Word"/>
-<input type="button" value="Clear Glyph"/>
+<input id="clear-glyph-button" type="button" value="Clear Glyph"/>
 <input type="button" value="Clear Word"/>
+<br/>
+<br/>
+<canvas id="word-canvas" style="image-rendering: pixelated; image-rendering: crisp-edges;background:rgb(225,225,225);" width="400" height="40"></canvas>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 
-var vowelMapping = 
+var vowelMapping =
 {
     1:["IE","as in Guy"],
 	2:["AY","as in Bay"],
@@ -202,6 +208,37 @@ var vowelMapping =
 	31:["OH","as in Toe"]
 };
 
+var conMapping = {
+	5:["W","as in Wit"],
+	26:["J","as in Jam"],
+	41:["P","as in Poppy"],
+	42:["L","as in Live"],
+	43:["R","as in Run"],
+	44:["CH","as in Chat"],
+	45:["T","as in Tunic"],
+	46:["Y","as in You"],
+	47:["TH","as in Thick"],
+	57:["F","as in Fox"],
+	59:["S","as in Sit"],
+	74:["B","as in Baby"],
+	75:["K","as in Kart"],
+	78:["V","as in Vine"],
+	80:["M","as in Man"],
+	84:["N","as in Net"],
+	90:["D","as in Dog"],
+	95:["ZH","as in Azure"],
+	105:["G","as in Gun"],
+	110:["Z","as in Zit"],
+	114:["H","as in Hop"],
+	122:["TH","as in This"],
+	125:["SH","as in Shut"],
+	127:["NG","as in Rink"],
+}
+
+var knownWords = {
+    "7640":"is",
+	"3928+1888":"this",
+}
 
 $( document ).ready(function() {
   //Attach handlers for clicked lines
@@ -214,7 +251,7 @@ $( document ).ready(function() {
 	}
 	drawSample()
   });
-  
+
     $(".order-circle").click((e) => {
 	$elem = $(e.currentTarget);
 	if($elem.hasClass("selected")){
@@ -224,7 +261,7 @@ $( document ).ready(function() {
 	}
 	drawSample()
   });
-  
+
   var scale = 1;
   var image = $('#glyph-image')[0];
   var canvas = $('#glyph-canvas')[0];
@@ -239,12 +276,12 @@ $( document ).ready(function() {
 	clearCanvas(canvas, ctx);
 	drawGlyph(ctx, glyph, 4,0,scale);
 	$('#glyph-value').text(glyph);
-	
+
 	var sampleSound1 = $('#sample-sound-1');
 	var sampleSound2 = $('#sample-sound-2');
 	var example1 = $('#sample-example-1');
 	var example2 = $('#sample-example-2');
-	
+
 	var flipped = (glyph & (1<<12)) > 0;
 	if(flipped){
 	    var t = sampleSound1;
@@ -252,56 +289,72 @@ $( document ).ready(function() {
 		sampleSound2 = t;
 		var t2 = example1;
 		example1 = example2;
-		example2 = t;
+		example2 = t2;
 	}
-	
+
 	var vowel = glyph & 31
 	if(vowelMapping[vowel] != null){
 		//update vowel sound
-		sampleSound1.text(vowelMapping[vowel][0]);
-		example1.text(vowelMapping[vowel][1]);
+		sampleSound2.text(vowelMapping[vowel][0]);
+		example2.text(vowelMapping[vowel][1]);
+	}else{
+		sampleSound2.text('--');
+		example2.text('--');
+	}
+	
+	var con = (glyph & (4064)) >> 5;
+	if(conMapping[con] !== undefined){
+		//update con sound
+		sampleSound1.text(conMapping[con][0]);
+		example1.text(conMapping[con][1]);
 	}else{
 		sampleSound1.text('--');
 		example1.text('--');
 	}
+	
   }
-  
+
   function clearCanvas(canvas, ctx){
       ctx.clearRect(0,0,canvas.width, canvas.height);
   }
-  
+
   function drawSegment(ctx, index, x, y, scale){
 	ctx.drawImage(image, 19*index,0,19,29,x,y,scale*19,scale*29);
   }
-  
+
   function drawWordline(ctx, x, y, scale){
    ctx.drawImage(image, 19*13,0,21,29,x-scale,y,scale*21,scale*29);
   }
-  
+
   function drawGlyph(ctx, glyph, x, y, scale){
 	  for(let i=0;i<13;i++){
 		if(glyph & (1 << i)) drawSegment(ctx,i,x,y,scale);
 	  }
 	  drawWordline(ctx,x,y,scale);
   }
-  
+
   function drawWord(ctx, glyphs, x, y, scale){
       for(var i=0;i<glyphs.length;i++){
 		drawGlyph(ctx, glyphs[i], x + (18 * i * scale), y, scale);
 	  }
   }
-  
+
   var currentWord = [];
   var wordCanvas = $('#word-canvas')[0];
   var wordContext = wordCanvas.getContext('2d');
   wordContext.imageSmoothingEnabled= false;
-  
+
   $('#add-to-word-button').click((e)=>{
 	currentWord.push($('#glyph-value').text());
 	clearCanvas(wordCanvas,wordContext);
 	drawWord(wordContext, currentWord, 5, 6, 1);
   });
   
+  $('#clear-glyph-button').click((e)=>{
+	$('.selected').removeClass('selected');
+	drawSample();
+  });
+
 });
 
 </script>
