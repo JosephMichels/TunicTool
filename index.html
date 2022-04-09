@@ -167,6 +167,42 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 
+var vowelMapping = 
+{
+    1:["IE","as in Guy"],
+	2:["AY","as in Bay"],
+	3:["EH","as in The"],
+	4:null,
+	5:null,
+	6:["AH","as in Swan"],
+	7:["A","as in Glass"],
+	8:["OI","as in Toy"],
+	9:null,
+	10:null,
+	11:null,
+	12:["OU","as in Wolf"],
+	13:null,
+	14:null,
+	15:["OO","as in Too"],
+	16:["OW","as in How"],
+	17:null,
+	18:null,
+	19:null,
+	20:["ERE","as in Air"],
+	21:null,
+	22:["EER","as in Beer"],
+	23:["ORE","as in Your"],
+	24:["I","as in Bit"],
+	25:null,
+	26:null,
+	27:["AR","as in Arm"],
+	28:["E","as in End"],
+	29:["IR","as in Bird"],
+	30:["EE","as in Bee"],
+	31:["OH","as in Toe"]
+};
+
+
 $( document ).ready(function() {
   //Attach handlers for clicked lines
   $(".line-group").click((e) => {
