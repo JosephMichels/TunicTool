@@ -142,15 +142,15 @@
 	<span class="centered" style="margin-right:4px;">Sound:</span>
 	<div style="display:inline-block;width:100px;text-align: center;vertical-align: top;">
 		<div style="display: inline-block;width:40%;text-align: center;vertical-align: top;">
-			<span>TH</span>
+			<span id="sample-sound-1">TH</span>
 			<br>
-			<span style="font-size: 13px;">Thick</span>
+			<span id="sample-example-1" style="font-size: 13px;">Thick</span>
 		</div>
 		<span class="centered">+</span>
 		<div style="display: inline-block;width:40%;text-align: center;vertical-align: top;">
-			<span>AI</span>
+			<span id="sample-sound-2">AI</span>
 			<br>
-			<span style="font-size: 13px;">Guy</span>
+			<span id="sample-example-2" style="font-size: 13px;">Guy</span>
 		</div>
 	</div>
 	<span class="centered" style="margin-right:10px;">Value:</span>
@@ -239,6 +239,31 @@ $( document ).ready(function() {
 	clearCanvas(canvas, ctx);
 	drawGlyph(ctx, glyph, 4,0,scale);
 	$('#glyph-value').text(glyph);
+	
+	var sampleSound1 = $('#sample-sound-1');
+	var sampleSound2 = $('#sample-sound-2');
+	var example1 = $('#sample-example-1');
+	var example2 = $('#sample-example-2');
+	
+	var flipped = (glyph & (1<<12)) > 0;
+	if(flipped){
+	    var t = sampleSound1;
+		sampleSound1 = sampleSound2;
+		sampleSound2 = t;
+		var t2 = example1;
+		example1 = example2;
+		example2 = t;
+	}
+	
+	var vowel = glyph & 31
+	if(vowelMapping[vowel] != null){
+		//update vowel sound
+		sampleSound1.text(vowelMapping[vowel][0]);
+		example1.text(vowelMapping[vowel][1]);
+	}else{
+		sampleSound1.text('--');
+		example1.text('--');
+	}
   }
   
   function clearCanvas(canvas, ctx){
