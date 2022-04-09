@@ -1,5 +1,6 @@
 <html>
 <head>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 <style>
 
 .main-line{
@@ -51,6 +52,7 @@
 
 </style>
 </head>
+<body style="text-align:center;">
 <img id="glyph-image" src="segments.png" style="display:none"/>
 <svg width="400" height="400">
 	<defs>
@@ -140,7 +142,7 @@
   <line class="word-line" x1="40" y1="200" x2="360" y2="200" stroke="black" stroke-width="3"/>
 
 </svg>
-<div style="height:40px;margin-top:10px;width:400px">
+<div style="height:40px;margin-top:10px">
     <span class="centered" style="margin-right:4px;">Glyph:</span>
 	<canvas style="image-rendering: pixelated; image-rendering: crisp-edges;" id="glyph-canvas" width="26" height="40"></canvas>
 	<span class="centered" style="margin-right:4px;">Sound:</span>
@@ -158,9 +160,9 @@
 		</div>
 	</div>
 	<span class="centered" style="margin-right:10px;margin-left:4px">Value:</span>
-	<span class="centered" id="glyph-value" style="margin-right:10px;"></span>
+	<span class="centered" id="glyph-value" style="margin-right:10px;min-width:40px"></span>
 </div>
-<div style="height:40px;margin-top:10px;width:400px">
+<div style="height:40px;margin-top:10px">
     <span class="centered" style="margin-right:4px;">Known Glyph:</span>
 	<span id="known-glyph" class="centered" style="margin-right:4px;">???</span>
 </div>
@@ -170,6 +172,7 @@
 <br/>
 <br/>
 <canvas id="word-canvas" style="image-rendering: pixelated; image-rendering: crisp-edges;background:rgb(225,225,225);" width="400" height="40"></canvas>
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 
