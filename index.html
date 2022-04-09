@@ -1,0 +1,247 @@
+<html>
+<head>
+<style>
+
+.main-line{
+    stroke:rgb(150,150,150);
+	stroke-dasharray:10;
+}
+
+.main-line.selected{
+    stroke:rgb(30,30,30);
+	stroke-width:3;
+	stroke-dasharray:unset;
+}
+
+.line-group:hover .main-line{
+    stroke-dasharray:unset;
+	stroke-width:5;
+	stroke:black;
+}
+
+.order-circle{
+	stroke:rgb(150,150,150);
+	stroke-dasharray:4;
+	fill-opacity:0.0;
+}
+
+.order-circle.selected{
+	stroke:rgb(30,30,30);
+	stroke-width:3;
+	stroke-dasharray:unset;
+	fill-opacity:0.0;
+}
+
+.order-circle:hover {
+	stroke:black;
+	stroke-width:5;
+	stroke-dasharray:unset;
+}
+
+.centered{
+	line-height:28px;
+	vertical-align:top;
+	display:inline-block;
+}
+
+
+</style>
+</head>
+<img id="glyph-image" src="segments.png" style="display:none"/>
+<svg width="400" height="400">
+	<defs>
+		<line id="line-01" x1="300" y1="100" x2="200" y2="50"/>
+		<line id="line-02" x1="200" y1="50" x2="100" y2="100"/>
+		<line id="line-03" x1="100" y1="100" x2="100" y2="300"/>
+		<line id="line-04" x1="100" y1="300" x2="200" y2="350"/>
+		<line id="line-05" x1="200" y1="350" x2="300" y2="300"/>
+		
+		<line id="line-06" x1="200" y1="150" x2="300" y2="100"/>
+		<line id="line-07" x1="200" y1="150" x2="200" y2="50"/>
+		<line id="line-08" x1="200" y1="150" x2="100" y2="100"/>
+		<line id="line-09" x1="200" y1="150" x2="200" y2="200"/>
+		<line id="line-10" x1="200" y1="250" x2="100" y2="300"/>
+		<line id="line-11" x1="200" y1="250" x2="200" y2="350"/>
+		<line id="line-12" x1="200" y1="250" x2="300" y2="300"/>
+
+	</defs>
+
+
+  <rect width="400" height="400" style="fill:rgb(220,220,220);stroke-width:1;stroke:rgb(0,0,0)" />
+ 
+  <g id="line-01-g" class="line-group">
+	<use xlink:href="#line-01" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-01" class="main-line" data-segment="1"/>
+  </g>
+  <g id="line-02-g" class="line-group">
+	<use xlink:href="#line-02" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-02" class="main-line" data-segment="2"/>
+  </g>
+  <g id="line-03-g" class="line-group">
+	<use xlink:href="#line-03" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-03" class="main-line" data-segment="3"/>
+  </g>
+  <g id="line-04-g" class="line-group">
+	<use xlink:href="#line-04" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-04" class="main-line" data-segment="4"/>
+  </g>
+  <g id="line-05-g" class="line-group">
+	<use xlink:href="#line-05" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-05" class="main-line" data-segment="5"/>
+  </g>
+    <g id="line-06-g" class="line-group">
+	<use xlink:href="#line-06" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-06" class="main-line" data-segment="6"/>
+  </g>
+  <g id="line-07-g" class="line-group">
+	<use xlink:href="#line-07" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-07" class="main-line" data-segment="7"/>
+  </g>
+  <g id="line-08-g" class="line-group">
+	<use xlink:href="#line-08" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-08" class="main-line" data-segment="8"/>
+  </g>
+  <g id="line-09-g" class="line-group">
+	<use xlink:href="#line-09" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-09" class="main-line" data-segment="9"/>
+  </g>
+  <g id="line-10-g" class="line-group">
+	<use xlink:href="#line-10" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-10" class="main-line" data-segment="10"/>
+  </g>
+  <g id="line-11-g" class="line-group">
+	<use xlink:href="#line-11" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-11" class="main-line" data-segment="11"/>
+  </g>
+  <g id="line-12-g" class="line-group">
+	<use xlink:href="#line-12" stroke-width="20" pointer-events="stroke"/>
+	<use xlink:href="#line-12" class="main-line" data-segment="12"/>
+  </g>
+  
+  
+    <!-- Top Points -->
+  <circle class="point" cx="200" cy="50" r="5"/>
+  <circle class="point" cx="200" cy="150" r="5"/>
+  <circle class="point" cx="100" cy="100" r="5"/>
+  <circle class="point" cx="300" cy="100" r="5"/>
+  
+  <!-- Bottom Points -->
+  <circle class="point" cx="200" cy="250" r="5"/>
+  <circle class="point" cx="200" cy="350" r="5"/>
+  <circle class="point" cx="100" cy="300" r="5"/>
+  <circle class="point" cx="300" cy="300" r="5"/>
+  
+  <circle class="order-circle" cx="200" cy="375" r="10" data-segment="13"/>
+  
+  <line class="word-line" x1="40" y1="200" x2="360" y2="200" stroke="black" stroke-width="3"/>
+  
+</svg>
+<div style="height:40px;margin-top:10px;width:400px">
+    <span class="centered" style="margin-right:4px;">Glyph:</span>
+	<canvas style="image-rendering: pixelated; image-rendering: crisp-edges;" id="glyph-canvas" width="26" height="40"></canvas>
+	<span class="centered" style="margin-right:4px;">Sound:</span>
+	<div style="display:inline-block;width:100px;text-align: center;vertical-align: top;">
+		<div style="display: inline-block;width:40%;text-align: center;vertical-align: top;">
+			<span>TH</span>
+			<br>
+			<span style="font-size: 13px;">Thick</span>
+		</div>
+		<span class="centered">+</span>
+		<div style="display: inline-block;width:40%;text-align: center;vertical-align: top;">
+			<span>AI</span>
+			<br>
+			<span style="font-size: 13px;">Guy</span>
+		</div>
+	</div>
+	<span class="centered" style="margin-right:10px;">Value:</span>
+	<span class="centered" id="glyph-value" style="margin-right:10px;"></span>
+</div>
+<div style="height:40px;margin-top:10px;width:400px">
+    <span class="centered" style="margin-right:4px;">Known Word:</span>
+	<span id="known-word" class="centered" style="margin-right:4px;">???</span>
+</div>
+<canvas id="word-canvas" style="image-rendering: pixelated; image-rendering: crisp-edges;background:rgb(225,225,225);" width="400" height="40"></canvas>
+<input id="add-to-word-button" type="button" value="Add to Word"/>
+<input type="button" value="Clear Glyph"/>
+<input type="button" value="Clear Word"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+$( document ).ready(function() {
+  //Attach handlers for clicked lines
+  $(".line-group").click((e) => {
+	$elem = $(e.currentTarget).find(".main-line");
+	if($elem.hasClass("selected")){
+	    $elem.removeClass("selected");
+	}else{
+	    $elem.addClass("selected");
+	}
+	drawSample()
+  });
+  
+    $(".order-circle").click((e) => {
+	$elem = $(e.currentTarget);
+	if($elem.hasClass("selected")){
+	    $elem.removeClass("selected");
+	}else{
+	    $elem.addClass("selected");
+	}
+	drawSample()
+  });
+  
+  var scale = 1;
+  var image = $('#glyph-image')[0];
+  var canvas = $('#glyph-canvas')[0];
+  var ctx = canvas.getContext('2d');
+  ctx.imageSmoothingEnabled= false
+
+  function drawSample(){
+	var glyph = 0;
+	var segments = $('.selected').each(function(){
+		glyph += 1 << ($(this).data('segment') - 1);
+	});
+	clearCanvas(canvas, ctx);
+	drawGlyph(ctx, glyph, 4,0,scale);
+	$('#glyph-value').text(glyph);
+  }
+  
+  function clearCanvas(canvas, ctx){
+      ctx.clearRect(0,0,canvas.width, canvas.height);
+  }
+  
+  function drawSegment(ctx, index, x, y, scale){
+	ctx.drawImage(image, 19*index,0,19,29,x,y,scale*19,scale*29);
+  }
+  
+  function drawWordline(ctx, x, y, scale){
+   ctx.drawImage(image, 19*13,0,21,29,x-scale,y,scale*21,scale*29);
+  }
+  
+  function drawGlyph(ctx, glyph, x, y, scale){
+	  for(let i=0;i<13;i++){
+		if(glyph & (1 << i)) drawSegment(ctx,i,x,y,scale);
+	  }
+	  drawWordline(ctx,x,y,scale);
+  }
+  
+  function drawWord(ctx, glyphs, x, y, scale){
+      for(var i=0;i<glyphs.length;i++){
+		drawGlyph(ctx, glyphs[i], x + (18 * i * scale), y, scale);
+	  }
+  }
+  
+  var currentWord = [];
+  var wordCanvas = $('#word-canvas')[0];
+  var wordContext = wordCanvas.getContext('2d');
+  wordContext.imageSmoothingEnabled= false;
+  
+  $('#add-to-word-button').click((e)=>{
+	currentWord.push($('#glyph-value').text());
+	clearCanvas(wordCanvas,wordContext);
+	drawWord(wordContext, currentWord, 5, 6, 1);
+  });
+  
+});
+
+</script>
+</html>
