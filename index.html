@@ -57,7 +57,7 @@
 <h1>Tunic Tool</h1>
 <div style="dispay:block; margin-top:-14px">
 	<div style="width:400px;display:inline-block">
-		<span>Simple tool for helping interperate some of the glyphs withing the game Tunic. Built on the work of reddit user <a href='https://www.reddit.com/user/oposdeo'>oposdeo</a> in this <a href='https://www.reddit.com/r/TunicGame/comments/tgc056/tunic_language_reference_sheet_big_spoiler/'>post</a>.</span>
+		<span>Simple tool for helping understand the glyphs within the game Tunic. Built on the work of reddit user <a href='https://www.reddit.com/user/oposdeo'>oposdeo</a> in this <a href='https://www.reddit.com/r/TunicGame/comments/tgc056/tunic_language_reference_sheet_big_spoiler/'>post</a>.</span>
 	</div>
 </div>
 <br>
@@ -177,10 +177,14 @@
 </div>
 <input id="add-to-word-button" type="button" value="Add to Word"/>
 <input id="clear-glyph-button" type="button" value="Clear Glyph"/>
-<input type="button" value="Clear Word"/>
+<input id="clear-word-button" type="button" value="Clear Word"/>
 <br/>
 <br/>
 <canvas id="word-canvas" style="image-rendering: pixelated; image-rendering: crisp-edges;background:rgb(225,225,225);" width="400" height="40"></canvas>
+<br/><br/>
+<div>
+	<div id="word-container" style="display:inline-block;width:400px"></div>
+</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
@@ -268,7 +272,7 @@ $( document ).ready(function() {
 	drawSample()
   });
 
-    $(".order-circle").click((e) => {
+  $(".order-circle").click((e) => {
 	$elem = $(e.currentTarget);
 	if($elem.hasClass("selected")){
 	    $elem.removeClass("selected");
@@ -365,11 +369,22 @@ $( document ).ready(function() {
 	currentWord.push($('#glyph-value').text());
 	clearCanvas(wordCanvas,wordContext);
 	drawWord(wordContext, currentWord, 5, 6, 1);
+	
+	//Clone sound container
+	var element = $('#sound-container>div:first-child').clone();
+	$('#word-container').append(element);
+	
   });
   
   $('#clear-glyph-button').click((e)=>{
 	$('.selected').removeClass('selected');
 	drawSample();
+  });
+  
+  $('#clear-word-button').click((e)=>{
+	clearCanvas(wordCanvas, wordContext);
+	$('#word-container').empty();
+	currentWord = [];
   });
 
 });
